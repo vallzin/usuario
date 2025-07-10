@@ -92,11 +92,17 @@ public class Usuario implements UserDetails {
     }
 
     public static class Builder {
+        private Long id;
         private String nome;
         private String email;
         private String senha;
         private List<Endereco> enderecos;
         private List<Telefone> telefones;
+
+        public Builder id(Long id){
+            this.id = id;
+            return this;
+        }
 
         public Builder nome(String nome) {
             this.nome = nome;
@@ -125,6 +131,7 @@ public class Usuario implements UserDetails {
 
         public Usuario build() {
             Usuario usuario = new Usuario();
+            usuario.setId(this.id);
             usuario.setNome(this.nome);
             usuario.setEmail(this.email);
             usuario.setSenha(this.senha);
