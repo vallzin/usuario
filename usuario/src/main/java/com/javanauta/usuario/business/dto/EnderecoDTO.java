@@ -2,6 +2,7 @@ package com.javanauta.usuario.business.dto;
 
 public class EnderecoDTO {
 
+    private Long id;
     private String rua;
     private String numero;
     private String complemento;
@@ -28,6 +29,8 @@ public class EnderecoDTO {
         this.cep = cep;
     }
 
+    public Long getId() { return id; }
+    public void setId(Long id){ this.id = id; }
     public String getRua(){ return rua; }
     public void setRua(String rua){ this.rua = rua;}
     public String getNumero(){ return numero; }
@@ -48,6 +51,8 @@ public class EnderecoDTO {
     }
 
     public static class Builder{
+
+        private Long id;
         private String rua;
         private String numero;
         private String complemento;
@@ -56,6 +61,7 @@ public class EnderecoDTO {
         private String estado;
         private String cep;
 
+        public Builder id(Long id){ this.id = id; return  this; }
         public Builder rua(String rua){ this.rua = rua; return this; }
         public Builder numero(String numero){ this.numero = numero; return this; }
         public Builder complemento(String complemento){ this.complemento = complemento; return this; }
@@ -65,7 +71,10 @@ public class EnderecoDTO {
         public Builder cep(String cep){ this.cep = cep; return this; }
 
         public EnderecoDTO build(){
+
             EnderecoDTO endereco = new EnderecoDTO();
+
+            endereco.setId(this.id);
             endereco.setRua(this.rua);
             endereco.setNumero(this.numero);
             endereco.setComplemento(this.complemento);
@@ -73,6 +82,7 @@ public class EnderecoDTO {
             endereco.setCidade(this.cidade);
             endereco.setEstado(this.estado);
             endereco.setCep(this.cep);
+
             return endereco;
         }
     }

@@ -34,8 +34,14 @@ public class Telefone {
     }
 
     public static class Builder{
+        private Long id;
         private String numero;
         private String ddd;
+
+        public Builder id(Long id){
+            this.id = id;
+            return this;
+        }
 
         public Builder numero(String numero){
             this.numero = numero;
@@ -48,9 +54,13 @@ public class Telefone {
         }
 
         public Telefone build(){
+
             Telefone telefone = new Telefone();
+
+            telefone.setId(this.id);
             telefone.setNumero(this.numero);
             telefone.setDdd(this.ddd);
+
             return telefone;
         }
 

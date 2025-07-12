@@ -130,13 +130,16 @@ public class Usuario implements UserDetails {
         }
 
         public Usuario build() {
+
             Usuario usuario = new Usuario();
+
             usuario.setId(this.id);
             usuario.setNome(this.nome);
             usuario.setEmail(this.email);
             usuario.setSenha(this.senha);
             usuario.setEnderecos(this.enderecos);
             usuario.setTelefones(this.telefones);
+
             return usuario;
         }
     }
