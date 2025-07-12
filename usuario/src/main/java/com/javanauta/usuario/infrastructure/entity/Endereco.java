@@ -65,6 +65,7 @@ public class Endereco {
     }
 
     public static class Builder {
+        private Long id;
         private String rua;
         private String numero;
         private String complemento;
@@ -72,6 +73,11 @@ public class Endereco {
         private String cidade;
         private String estado;
         private String cep;
+
+        public Builder id(Long id){
+            this.id = id;
+            return this;
+        }
 
         public Builder rua(String rua) {
             this.rua = rua;
@@ -109,7 +115,10 @@ public class Endereco {
         }
 
         public Endereco build() {
+
             Endereco endereco = new Endereco();
+
+            endereco.setId(this.id);
             endereco.setRua(this.rua);
             endereco.setNumero(this.numero);
             endereco.setComplemento(this.complemento);
@@ -117,6 +126,7 @@ public class Endereco {
             endereco.setCidade(this.cidade);
             endereco.setEstado(this.estado);
             endereco.setCep(this.cep);
+
             return endereco;
         }
     }

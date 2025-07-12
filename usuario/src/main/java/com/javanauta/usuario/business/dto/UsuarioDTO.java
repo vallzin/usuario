@@ -5,6 +5,7 @@ import java.util.List;
 
 public class UsuarioDTO {
 
+    private Long id;
     private String nome;
     private String email;
     private String senha;
@@ -20,7 +21,8 @@ public class UsuarioDTO {
         this.email = email;
         this.senha = senha;
     }
-
+    public Long getId(){ return id; }
+    public void setId(Long id){ this.id = id; }
     public String getNome(){ return nome; }
     public void setNome(String nome){ this.nome = nome; }
     public String getEmail(){ return email; }
@@ -35,11 +37,17 @@ public class UsuarioDTO {
     public static Builder builder(){ return new Builder(); }
 
     public static class Builder{
+        private Long id;
         private String nome;
         private String email;
         private String senha;
         private List<EnderecoDTO> enderecos;
         private List<TelefoneDTO> telefones;
+
+        public Builder id(Long id){
+            this.id = id;
+            return this;
+        }
 
         public Builder nome(String nome) {
             this.nome = nome;
@@ -67,12 +75,16 @@ public class UsuarioDTO {
         }
 
         public UsuarioDTO build(){
+
             UsuarioDTO usuario = new UsuarioDTO();
+
+            usuario.setId(this.id);
             usuario.setNome(this.nome);
             usuario.setEmail(this.email);
             usuario.setSenha(this.senha);
             usuario.setEnderecos(this.enderecos);
             usuario.setTelefones(this.telefones);
+
             return usuario;
         }
 
